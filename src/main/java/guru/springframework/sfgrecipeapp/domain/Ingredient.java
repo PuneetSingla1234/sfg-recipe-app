@@ -2,7 +2,6 @@ package guru.springframework.sfgrecipeapp.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Entity
 public class Ingredient {
@@ -15,6 +14,14 @@ public class Ingredient {
     private Recipe recipe;
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom,Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+        this.recipe=recipe;
+    }
+
     public Long getId() {
         return id;
     }
