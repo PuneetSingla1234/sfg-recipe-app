@@ -72,9 +72,9 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         perfectPopcornNotes.setRecipe(perfectPopcorn);
         perfectPopcorn.setNotes(perfectPopcornNotes);
 
-        perfectPopcorn.getIngredients().add(new Ingredient("coconut oil",new BigDecimal(3),tbsp.get(),perfectPopcorn));
-        perfectPopcorn.getIngredients().add(new Ingredient("High quality popcorn kernels",new BigDecimal(0.33),cup.get(),perfectPopcorn));
-        perfectPopcorn.getIngredients().add(new Ingredient("salt to taste",new BigDecimal(0),noUnit.get(),perfectPopcorn));
+        perfectPopcorn.addIngredient(new Ingredient("coconut oil",new BigDecimal(3),tbsp.get()));
+        perfectPopcorn.addIngredient(new Ingredient("High quality popcorn kernels",new BigDecimal(0.33),cup.get()));
+        perfectPopcorn.addIngredient(new Ingredient("salt to taste",new BigDecimal(0),noUnit.get()));
 
         perfectPopcorn.getCategories().add(veg.get());
         perfectPopcorn.getCategories().add(american.get());
@@ -104,17 +104,16 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
                 "1. To make this cheesy potato casserole ahead of time: Assemble the casserole, cover it, and store in the fridge for up to two days, then bake as instructed.\n" +
                 "2. You can also, bake the entire casserole. Let it cool, cover it and keep it in the fridge for up to four days. When ready to reheat it, just follow the baking instructions as if you’d just mixed it together. It might need an extra 10 minutes in the oven to take off the chill.\n" +
                 "3. You can also freeze this casserole! I recommend freezing it after baking it so the casserole is cooked and you just have to reheat it from a frozen state. It will keep in the freezer for three to six months, and you should reheat it in a 350˚F oven until it’s warmed through.\n");
-        cheesyPotatoNotes.setRecipe(cheesyPotato);
         cheesyPotato.setNotes(cheesyPotatoNotes);
-        cheesyPotato.getIngredients().add(new Ingredient("butter",new BigDecimal(0.25), cup.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("yellow onion",new BigDecimal(1), noUnit.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("cloves garlic",new BigDecimal(3), noUnit.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("all- purpose flour",new BigDecimal(0.25), cup.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("vegetable",new BigDecimal(3), cup.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("grated cheddar cheese",new BigDecimal(2), cup.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("salt",new BigDecimal(0.5), tsp.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("black pepper",new BigDecimal(0.5), tsp.get(),cheesyPotato));
-        cheesyPotato.getIngredients().add(new Ingredient("frozen hash browns",new BigDecimal(30), ounce.get(),cheesyPotato));
+        cheesyPotato.addIngredient(new Ingredient("butter",new BigDecimal(0.25), cup.get()));
+        cheesyPotato.addIngredient(new Ingredient("yellow onion",new BigDecimal(1), noUnit.get()));
+        cheesyPotato.addIngredient(new Ingredient("cloves garlic",new BigDecimal(3), noUnit.get()));
+        cheesyPotato.addIngredient(new Ingredient("all- purpose flour",new BigDecimal(0.25), cup.get()));
+        cheesyPotato.addIngredient(new Ingredient("vegetable",new BigDecimal(3), cup.get()));
+        cheesyPotato.addIngredient(new Ingredient("grated cheddar cheese",new BigDecimal(2), cup.get()));
+        cheesyPotato.addIngredient(new Ingredient("salt",new BigDecimal(0.5), tsp.get()));
+        cheesyPotato.addIngredient(new Ingredient("black pepper",new BigDecimal(0.5), tsp.get()));
+        cheesyPotato.addIngredient(new Ingredient("frozen hash browns",new BigDecimal(30), ounce.get()));
         recipes.add(cheesyPotato);
 
         return recipes;
