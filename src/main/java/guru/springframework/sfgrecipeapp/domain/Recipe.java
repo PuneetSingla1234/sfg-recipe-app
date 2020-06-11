@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
+@Data
 public class Recipe {
 
     @Id
@@ -39,6 +39,9 @@ public class Recipe {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
+    public Recipe() {
+    }
+
 
     public void addIngredient(Ingredient ingredient){
         getIngredients().add(ingredient);
@@ -49,6 +52,7 @@ public class Recipe {
         this.notes = notes;
         notes.setRecipe(this);
     }
+
 
 }
 
