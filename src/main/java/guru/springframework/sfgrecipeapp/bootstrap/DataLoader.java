@@ -4,15 +4,17 @@ import guru.springframework.sfgrecipeapp.domain.*;
 import guru.springframework.sfgrecipeapp.repositories.CategoryRepository;
 import guru.springframework.sfgrecipeapp.repositories.RecipeRepository;
 import guru.springframework.sfgrecipeapp.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
@@ -120,7 +122,9 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.debug("I'm in DataLoader class");
         recipeRepository.saveAll(getRecipes());
     }
 }
