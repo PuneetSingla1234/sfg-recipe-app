@@ -15,7 +15,7 @@
 	<description>Recipe App</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 
 	<dependencies>
@@ -94,7 +94,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
+
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
