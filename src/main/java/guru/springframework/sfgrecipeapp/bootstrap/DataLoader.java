@@ -81,7 +81,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         perfectPopcorn.getCategories().add(veg.get());
         perfectPopcorn.getCategories().add(american.get());
         recipes.add(perfectPopcorn);
-
+        System.out.println("Recipe ID:"+perfectPopcorn.getId());
 
         Recipe cheesyPotato= new Recipe();
         cheesyPotato.setDescription("Cheesy Potato Casserole Recipe");
