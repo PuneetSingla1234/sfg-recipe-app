@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
@@ -28,6 +27,7 @@ class IndexControllerTest {
     RecipeServiceImpl recipeService;
     @Mock
     Model model;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -37,7 +37,8 @@ class IndexControllerTest {
     @Test
     void testMockMVC() throws Exception{
         MockMvc mockMvc= MockMvcBuilders.standaloneSetup(indexController).build();
-        mockMvc.perform((RequestBuilder) MockServerHttpRequest.get("/"))
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("index"));
     }
