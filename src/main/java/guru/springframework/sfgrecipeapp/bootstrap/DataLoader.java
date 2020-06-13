@@ -36,7 +36,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
             throw new RuntimeException("Category not found");
         Optional<UnitOfMeasure> tbsp= unitOfMeasureRepository.findByDescription("Tablespoon");
         Optional<UnitOfMeasure> cup=unitOfMeasureRepository.findByDescription("Cup");
-        Optional<UnitOfMeasure> noUnit=unitOfMeasureRepository.findByDescription("No Unit");
+        Optional<UnitOfMeasure> noUnit=unitOfMeasureRepository.findByDescription("Each");
         Optional<UnitOfMeasure> tsp=unitOfMeasureRepository.findByDescription("Teaspoon");
         Optional<UnitOfMeasure> ounce= unitOfMeasureRepository.findByDescription("Ounce");
         if(!tbsp.isPresent())
