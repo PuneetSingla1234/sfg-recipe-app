@@ -99,7 +99,7 @@
                         <h1 class="panel-title">Directions</h1>
                     </div>
                     <div class="panel-body">
-                        <p th:text="${recipe.directions}">
+                        <p th:utext="${#strings.replace(recipe.directions,'&#10;','&lt;br&gt;')}">
                             Recipe Directions will be inserted here.
                         </p>
                     </div>
@@ -109,7 +109,7 @@
                         <h1 class="panel-title">Recipe Notes</h1>
                     </div>
                     <div class="panel-body">
-                        <p th:text="${recipe.notes.recipeNotes}">
+                        <p th:utext="${#strings.replace(recipe.notes.recipeNotes,'&#10;','&lt;br&gt;')}">
                             Recipe Notes will be inserted here.
                         </p>
                     </div>
