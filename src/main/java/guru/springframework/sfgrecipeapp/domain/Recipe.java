@@ -28,12 +28,12 @@ public class Recipe {
     private Difficulty difficulty;
     @Lob
     private Byte[] image;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe",fetch = FetchType.EAGER)
     private Set<Ingredient> ingredients=new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "recipe_category",
             joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
@@ -44,11 +44,15 @@ public class Recipe {
 
 
     public void addIngredient(Ingredient ingredient){
+        if(ingredient==null)
+            return;
         getIngredients().add(ingredient);
         ingredient.setRecipe(this);
     }
 
     public void setNotes(Notes notes) {
+        if(notes==null)
+            return;
         this.notes = notes;
         notes.setRecipe(this);
     }

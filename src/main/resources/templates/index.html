@@ -18,7 +18,14 @@
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-primary">
             <div class="panel panel-heading">
-                <h1 class="panel-title">My Recipes</h1>
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1 class="panel-title">My Recipes</h1>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#" th:href="@{/recipe/new}" class="btn btn-default" role="button">+ New</a>
+                    </div>
+                </div>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -27,7 +34,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Description</th>
-                            <th>Click To View</th>
+                            <th>View</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
 
@@ -35,6 +44,8 @@
                             <td th:text="${recipe.id}">123123</td>
                             <td th:text="${recipe.description}">Recipe</td>
                             <td><a href="#" th:href="@{'/recipe/show/'+${recipe.id}}">View</a></td>
+                            <td><a href="#" th:href="@{'/recipe/update/'+${recipe.id}}">Update</a></td>
+                            <td><a href="#" th:href="@{'/recipe/delete/'+${recipe.id}}">Delete</a></td>
                         </tr>
 
                     </table>

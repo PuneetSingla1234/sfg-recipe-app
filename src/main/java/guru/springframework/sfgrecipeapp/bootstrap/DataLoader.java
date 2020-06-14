@@ -126,5 +126,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         log.debug("I'm in DataLoader class");
         recipeRepository.saveAll(getRecipes());
+        Category category=categoryRepository.findAll().iterator().next();
+        //System.out.println(category.getRecipes().iterator().next());
+        System.out.println(category.getRecipes().size());
     }
 }
