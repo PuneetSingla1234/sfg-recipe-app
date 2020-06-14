@@ -28,12 +28,12 @@ public class Recipe {
     private Difficulty difficulty;
     @Lob
     private Byte[] image;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients=new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "recipe_category",
             joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
