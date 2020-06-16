@@ -3,6 +3,7 @@ package guru.springframework.sfgrecipeapp.converters;
 import com.sun.istack.Nullable;
 import guru.springframework.sfgrecipeapp.commands.IngredientCommand;
 import guru.springframework.sfgrecipeapp.domain.Ingredient;
+import guru.springframework.sfgrecipeapp.domain.Recipe;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,12 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
         ingredient.setAmount(source.getAmount());
         ingredient.setDescription(source.getDescription());
         ingredient.setUom(uomConverter.convert(source.getUom()));
+
+        Recipe recipe=new Recipe();
+        recipe.setId(source.getRecipeId());
+        ingredient.setRecipe(recipe);
+        recipe.getIngredients().add(ingredient);
+
         return ingredient;
     }
 }
